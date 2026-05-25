@@ -1,55 +1,48 @@
-# Zoronal – MERN Company Review Platform
+# MERN_Assessment
 
-A full-stack MERN application for adding company profiles and writing reviews.
+Zoronal is a full-stack MERN company review platform for adding company profiles
+and writing reviews.
 
 ## Project Structure
 
-```
+```text
 zoronal/
-├── backend/          # Express + MongoDB API
-│   ├── controllers/
-│   ├── models/
-│   ├── routes/
-│   ├── middleware/
-│   └── server.js
-└── frontend/         # React + Vite UI
-    └── src/
-        ├── components/
-        ├── pages/
-        └── utils/
+|- backend/          # Express + MongoDB API
+|  |- controllers/
+|  |- middleware/
+|  |- models/
+|  |- routes/
+|  `- server.js
+`- frontend/         # React + Vite UI
+   `- src/
+      |- components/
+      |- pages/
+      `- utils/
 ```
 
 ## Prerequisites
 
 - Node.js v18+
-- MongoDB running locally **or** a MongoDB Atlas URI
-
----
+- MongoDB running locally or a MongoDB Atlas URI
 
 ## Backend Setup
 
 ```bash
 cd backend
 npm install
-
-# Copy env and edit if needed
 cp .env.example .env
-
-# Start dev server
 npm run dev
 ```
 
-The API will run at **http://localhost:5000**
+The API runs at `http://localhost:5000`.
 
-### Environment Variables (`backend/.env`)
+### Environment Variables
 
-| Variable     | Default                              | Description              |
-|-------------|--------------------------------------|--------------------------|
-| `PORT`      | `5000`                               | Server port              |
-| `MONGO_URI` | `mongodb://localhost:27017/zoronal`  | MongoDB connection URI   |
-| `CLIENT_URL`| `http://localhost:5173`              | Allowed CORS origin      |
-
----
+| Variable | Default | Description |
+| --- | --- | --- |
+| `PORT` | `5000` | Server port |
+| `MONGO_URI` | `mongodb://localhost:27017/zoronal` | MongoDB connection URI |
+| `CLIENT_URL` | `http://localhost:5173` | Allowed CORS origin |
 
 ## Frontend Setup
 
@@ -59,58 +52,50 @@ npm install
 npm run dev
 ```
 
-The app will run at **http://localhost:5173**
+The app runs at `http://localhost:5173`.
 
-> Vite proxies `/api` and `/uploads` to the backend automatically.
-
----
+Vite proxies `/api` and `/uploads` to the backend automatically.
 
 ## API Reference
 
 ### Companies
 
-| Method | Endpoint              | Description                        |
-|--------|-----------------------|------------------------------------|
-| GET    | `/api/companies`      | List companies (search/filter/sort)|
-| GET    | `/api/companies/:id`  | Get single company                 |
-| POST   | `/api/companies`      | Create company (multipart/form-data)|
-| PUT    | `/api/companies/:id`  | Update company                     |
-| DELETE | `/api/companies/:id`  | Delete company + all reviews       |
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| GET | `/api/companies` | List companies with search, filter, and sort support |
+| GET | `/api/companies/:id` | Get a single company |
+| POST | `/api/companies` | Create a company with multipart form data |
+| PUT | `/api/companies/:id` | Update a company |
+| DELETE | `/api/companies/:id` | Delete a company and its reviews |
 
-**Query params for GET /api/companies:**
-- `search` – text search across name, description, city
-- `city` – filter by city
-- `industry` – filter by industry
-- `sortBy` – `createdAt` | `name` | `averageRating` | `totalReviews` | `foundedOn`
-- `order` – `asc` | `desc`
-- `page`, `limit` – pagination
+Query params for `GET /api/companies`:
+- `search`: text search across name, description, and city
+- `city`: filter by city
+- `industry`: filter by industry
+- `sortBy`: `createdAt`, `name`, `averageRating`, `totalReviews`, or `foundedOn`
+- `order`: `asc` or `desc`
+- `page` and `limit`: pagination
 
 ### Reviews
 
-| Method | Endpoint                  | Description              |
-|--------|---------------------------|--------------------------|
-| GET    | `/api/reviews?companyId=` | List reviews for company |
-| POST   | `/api/reviews`            | Create review            |
-| POST   | `/api/reviews/:id/like`   | Like/unlike a review     |
-| DELETE | `/api/reviews/:id`        | Delete a review          |
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| GET | `/api/reviews?companyId=` | List reviews for a company |
+| POST | `/api/reviews` | Create a review |
+| POST | `/api/reviews/:id/like` | Like or unlike a review |
+| DELETE | `/api/reviews/:id` | Delete a review |
 
-**Query params for GET /api/reviews:**
-- `companyId` *(required)* – company ID
-- `sortBy` – `createdAt` | `rating` | `likes`
-- `order` – `asc` | `desc`
-- `page`, `limit` – pagination
+Query params for `GET /api/reviews`:
+- `companyId` (required): company ID
+- `sortBy`: `createdAt`, `rating`, or `likes`
+- `order`: `asc` or `desc`
+- `page` and `limit`: pagination
 
----
+## Features
 
-## Features Implemented
-
-- ✅ Add Company with logo upload (name, location, city, foundedOn, description, website, industry)
-- ✅ Company listing with search, filter by city, sort, pagination
-- ✅ Company detail page with logo, metadata, rating summary with distribution bars
-- ✅ Add Review (full name, subject, review text, star rating)
-- ✅ Review listing with sort by date / rating / likes
-- ✅ Average rating auto-calculated and displayed prominently
-- ✅ Like / unlike reviews (prevents double-liking via client ID)
-- ✅ Share review (copies link to clipboard)
-- ✅ Delete review / delete company
-- ✅ Responsive dark-mode UI
+- Add companies with logo upload, location, city, founded date, description, website, and industry
+- Browse companies with search, city filtering, sorting, and pagination
+- View company details with rating summaries and review breakdowns
+- Add, list, like, share, and delete reviews
+- Delete companies together with their reviews
+- Responsive UI with backend upload handling
