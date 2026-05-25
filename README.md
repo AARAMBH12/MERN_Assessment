@@ -1,3 +1,11 @@
+ShreenShots->
+ <img width="1920" height="874" alt="image" src="https://github.com/user-attachments/assets/bd507759-c769-4b14-a7e1-4b78ab6c0635" />
+ 
+ 
+ <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/723c1ea4-b75f-4e4a-b7dd-a27781e0b543" />
+
+
+
 # MERN_Assessment
 
 Zoronal is a full-stack MERN company review platform for adding company profiles
