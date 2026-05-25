@@ -1,0 +1,97 @@
+.company-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.company-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(245, 197, 24, 0.08);
+}
+
+.company-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.company-logo {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.company-logo-placeholder {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f5c518 0%, #e8a000 100%);
+  color: #000;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.company-card-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.company-card-name {
+  font-family: var(--font-head);
+  font-size: 17px;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text);
+}
+
+.company-card-location {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.company-card-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.company-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.company-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rating-val {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.review-count {
+  font-size: 12px;
+  color: var(--text-dim);
+}
